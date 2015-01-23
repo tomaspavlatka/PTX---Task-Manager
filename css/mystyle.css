@@ -1,0 +1,197 @@
+/*** PAGINATOR ***/
+.paginationControl{margin: 5px;float: right;text-align: right;}
+.paginationControl a{background: #333;color: #fff;border: 1px solid #999;padding: 5px;margin-right: 5px;text-decoration: none;}
+.paginationControl a:hover{text-decoration: underline;color: #fff;}
+.page-selected{font-weight: bold;background: #f0f0f0;color: #000;border: 1px solid #000;padding: 5px;margin-right: 5px;}
+.pcount{background: #f0f0f0;color: #000;border: 1px solid #000;padding: 5px;margin-right: 5px;}
+
+/*** LIST CLASSES ***/
+.icon, .td_icon {width: 30px;}
+.arrows{width: 50px;text-align:center;}
+.arrows img{margin-right: 3px;}
+.cleaner{clear:both;}
+.displaynone{display:none;}
+.hand{cursor: pointer;}
+.nounderline {text-decoration: none;}
+.noborder {border: 0px;}
+
+.b, .tb {font-weight: bold;}
+.s {font-size: 0.85em;}
+.grey {color: #999;}
+.italic, .i {font-style: italic;}
+
+ul.ul-normal {margin-left: 20px;}
+
+/*** FORM ***/
+fieldset{border: 1px solid #ccc !important; background: #f0f0f0 !important; padding: 5px;}
+legend {font-size: 1.1em;color: #fff !important; background: #333 !important; padding: 5px;margin-left: -6px;}
+form table {border: 1px solid #000; width: 100%}
+form table tr {border-bottom: 1px solid #369;}
+form table td {border: 0px !important;}
+form table td.form_label {width: 170px; vertical-align: top}
+
+.ptx-form input,.ptx-form select,.ptx-form textarea{padding: 3px;}
+.ptx-form select option{padding-left: 5px;}
+.ptx-form .full{width: 900px;}
+.ptx-form .long{width: 724px;}
+.ptx-form .medium{width: 450px;}
+.ptx-form .tiny {width: 100px;}
+.ptx-form .required label {color: #369; font-weight: bold;}
+.ptx-form .big{font-size: 1.1em; font-weight: bold;}
+.ptx-form .form_input label input {margin-right: 5px;}
+.ptx-form select.medium{width: 460px;}
+.ptx-form .error td {position: relative; padding-bottom: 20px !important}
+.ptx-form .error .form_input input{border: 1px solid #f00; background: #FFDEAD}
+.ptx-form div.required {color: #369; font-weight: bold; margin-top: 5px; font-size: 0.9em; text-align: right}
+.ptx-form .required label:after { content: ' *';}
+.ptx-form .error .form_input .error-message {font-size: 0.9em; color: #f00; padding: 0px 0px 3px 3px; position: absolute; font-weight: normal}
+.ptx-form .error .form_input_hint .error-message {padding-top: 15px}
+.ptx-form #submit {margin-top: 0px}
+.ptx-form .radio label {margin: 0px 0px 0px 3px}
+.ptx-form .ui-datepicker-trigger {padding-left: 3px; padding-top: 2px; cursor: pointer}
+.ptx-form .hint {font-size: 0.8em; color: #999; padding-left: 3px}
+.ptx-form .ui-tabs-panel .hint {color: #369;}
+.ptx-form .multi_checkbox label {color: #000; font-weight: normal; padding-left: 5px}
+.ptx-form .multi_checkbox div.long {float: left; width: 150px}
+
+.ptx-dialog-form fieldset, .ptx-dialog-form table {border: 0px;}
+.ptx-dialog-form input,.ptx-dialog-form select,.ptx-dialog-form textarea{padding: 3px;}
+.ptx-dialog-form select option{padding-left: 5px;}
+.ptx-dialog-form .medium{width: 305px;}
+.ptx-dialog-form textarea.medium{width: 307px;}
+.ptx-dialog-form select.medium{width: 315px;}
+.ptx-dialog-form .required label {color: #369; font-weight: bold;}
+.ptx-dialog-form .big{font-size: 1.1em; font-weight: bold;}
+.ptx-dialog-form .form_input label input {margin-right: 5px;}
+.ptx-dialog-form .error td {position: relative}
+.ptx-dialog-form .error .form_input input{border: 1px solid #f00; background: #FFDEAD}
+.ptx-dialog-form div.required {color: #369; font-weight: bold; margin-top: 5px; font-size: 0.9em; text-align: right}
+.ptx-dialog-form .required label:after { content: ' *';}
+.ptx-dialog-form .error .form_input .error-message {font-size: 0.9em; color: #f00; padding: 0px 0px 3px 3px; position: absolute; font-weight: normal}
+.ptx-dialog-form .error .form_input_hint .error-message {padding-top: 15px}
+.ptx-dialog-form #submit {margin-top: 0px}
+.ptx-dialog-form .radio label {margin: 0px 0px 0px 3px}
+.ptx-dialog-form .ui-datepicker-trigger {padding-left: 3px; padding-top: 2px; cursor: pointer}
+.ptx-dialog-form .hint {font-size: 0.8em; color: #999; padding-left: 3px}
+.ptx-dialog-form .ui-tabs-panel .hint {color: #369;}
+.ptx-dialog-form .multi_checkbox label {color: #000; font-weight: normal; padding-left: 5px}
+.ptx-dialog-form .multi_checkbox div.long {float: left; width: 150px}
+
+.ptx-login-form table, .ptx-login-form tr, .ptx-login-form td {border: 0px} 
+.ptx-login-form td {padding: 3px}
+.ptx-login-form td.form_label {width: 120px}
+.ptx-login-form input {padding: 3px;}
+.ptx-login-form input.big {font-weight: bold}
+.ptx-login-form input.medium {width: 255px}
+.ptx-login-form input.input-submit {margin-left: 132px; margin-bottom: 7px}
+
+.ptx-login-form .required {color: #369; font-weight: bold;}
+.ptx-login-form div.required {display: none}
+
+/*** DETAIL TABLE ***/
+.table_detail{margin: 10px 0 10px 0;}
+.table_detail .td_ident{width: 200px; background: #f0f0f0; font-size: 0.9em}
+.table_detail tr:hover td {background: #D1E0E2 !important}
+.table_detail .js-link {cursor: pointer}
+.table_detail td {border: 1px solid #cfcfcf !important;}
+.table_detail td a {text-decoration: none}
+.table_detail th a {color: #fff; text-decoration: none}
+.table_detail th a {background-image: url(../img/middle.png); display: block; background-repeat: no-repeat; background-position: left; padding-left: 20px;}
+.table_detail th a.asc {background-image: url(../img/asc.png);}
+.table_detail th a.desc {background-image: url(../img/desc.png);}
+.table_detail tr.header_style, .table_detail tr.header_style:hover td {background: #99CCFF !important}
+.table_detail tr.filter {background: #D1E0E2 !important}
+.table_detail .filter td {text-align: left}
+.table_detail .filter input, .table_detail .filter select {width: 75%;}
+.table_detail .filter label {display: inline; padding-right: 5px;}
+
+#translate {margin-top: 15px}
+#translate ul {margin: 0px; padding: 0px;}
+.menu-flags img {float: left; padding: 10px 0px 5px 5px;}
+
+.table_content{position: relative}
+.table_content_tree {margin-top: 15px}
+.table_content .loading {background: #333 url(../img/ajax-loader.gif) center center no-repeat; height: 100%; position: absolute; top: 0px; left: 0px; width: 100%; opacity:0.8; filter:alpha(opacity=80); display: none}
+
+.inline_tabs{margin-top: 10px}
+.inline_tabs ul {margin: 0px; padding: 0px !important}
+.inline_tabs .table_detail tr td {background: #fff !important}
+.inline_tabs .ui-tabs .ui-tabs-nav {padding: 0px !important}
+.inline_tabs .tabs_images img {float: left; padding: 7px 0px 5px 5px;}
+.inline_tabs .tabs_form {padding: 5px; text-align: right}
+.inline_tabs .tabs_form input {padding: 2px 3px}
+.inline_tabs #google_map_canvas {margin: 5px 5px 5px 15px}
+.inline_tabs .p_style, .inline_tabs p {padding: 3px 10px}
+.inline_tabs .table_content_tree {margin-top: 0px}
+.inline_tabs table {border-width: 0px 0px 0px 1px !important; border-color: #348AD8}
+.inline_tabs .swfupload {margin-left: -120px; width: 125px; height: 35px}
+.inline_tabs .td_checkbox {width: 30px; text-align: center}
+
+.ui-widget {font-size: 1em}
+.ui-corner-all {border-radius: 0px}
+.ui-corner-top {border-radius: 0px}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {background: none repeat scroll 0 0 #99CCFF; border: 1px solid #2694E8; color: #003366; font-weight: bold; }
+.ui-tabs .ui-tabs-panel { background: none repeat scroll 0 0 #99CCFF; border: 1px solid #2694E8; display: block; margin-bottom: 10px; padding: 0; border-top: 0px}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {border-radius: 0px}
+.ui-widget-header {color: #222222; font-weight: bold; border: 0px; background: #F2F5F7}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {color: #000033; text-decoration: none; font-size: 100%}
+
+.user_card {background: #fff; border: 1px solid #ccc; padding: 0px}
+.user_card p {background: #EAEAEA; padding: 5px; margin: 0px}
+.user_cart ul {list-style: circle; margin-bottom: 0px}
+.user_card li a {border: 0px !important; padding: 2px 15px !important }
+
+.ptx-form .error .mceLayout  {width: 724px !important;}
+.ptx-form .error .mceLayout td, .mceLayout td {padding: 0px !important; margin: 0px}
+.ptx-form .error .mceLayout td.mceToolbar, .mceLayout td.mceToolbar  {padding: 3px !important;}
+
+.edit_pencil {cursor: pointer}
+
+.instant_edit_form {}
+.instant_edit_form input {padding: 2px 3px}
+.instant_edit_form input.medium {width: 250px}
+
+.inline_menu {padding: 5px 10px 0px 10px; text-align: right}
+
+#form_fast_change {
+    top: 32px; right: 50px;
+    position: absolute}
+#form_fast_change select{
+    padding: 5px}
+#form_fast_change label {
+    color: #fff;
+    font-size: 0.9em;
+    font-style: italic;
+    padding-right: 5px}
+
+.label a {
+    text-decoration: none;
+    color: #fff}
+
+.filter_date{
+    font-weight: normal}
+.filter_date label {
+    display: block;
+    text-align: left;
+    width: 35px;
+    float: left}
+.filter_date input {
+    width: 60% !important}
+.filter_date img {
+    float: left;
+    padding: 1px 0px 0px 0px;
+    cursor: pointer}
+
+.ui-dialog-content table td {
+    padding: 2px 3px !important}
+
+#action-window {
+    display: none;
+    background: #f0f0f0;
+    border: 1px solid #000;
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 0px;
+    left: auto;
+}
