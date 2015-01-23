@@ -12,3 +12,4 @@ $tpl = file_get_contents(TPL . 'layout.tpl');
 $replace = array(
     '[+content+]' => $content);
 echo strtr($tpl, $replace);
+ 
