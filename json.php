@@ -4,6 +4,8 @@ header('content-type: application/json; charset=utf-8');
 define('APP', __DIR__);
 define('DS', '/');
 require APP . DS . 'Config' . DS . 'bootstrap.php';
+require CONTROLLER . 'TaskController.php';
+require MODEL . 'Task.php';
 
 $action = null;
 $request_uri = str_replace('/json/', null, $_SERVER['REQUEST_URI']);
@@ -28,15 +30,27 @@ if($data === null) {
 } else {
   
     switch($action) {
+        case 'task':
+            $controller = new TaskController();
+            $data = $controller->task($data);
+            break;
         case 'task_add':
-            require CONTROLLER . 'TaskController.php';
-            require MODEL . 'Task.php';
             $controller = new TaskController();
             $data = $controller->add($data);
             break;
+        case 'task_add_time':
+            $controller = new TaskController();
+            $data = $controller->add_time($data);
+            break;
+        case 'task_close':
+            $controller = new TaskController();
+            $data = $controller->close($data);
+            break;
+        case 'task_open':
+            $controller = new TaskController();
+            $data = $controller->open($data);
+            break;
         case 'tasks':
-            require CONTROLLER . 'TaskController.php';
-            require MODEL . 'Task.php';
             $controller = new TaskController();
             $data = $controller->index($data);
             break;

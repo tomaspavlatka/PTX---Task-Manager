@@ -202,6 +202,7 @@ form table td.form_label {width: 170px; vertical-align: top}
     left: auto}
 .dialog {
     background: #f0f0f0;
+    padding: 5px;
     position: absolute;
     z-index: 10000}
 #dialog-notification {
@@ -225,3 +226,56 @@ form table td.form_label {width: 170px; vertical-align: top}
     height: 100%;
     opacity: 0.4;
     filter: alpha(opacity=40); /* For IE8 and earlier */}
+
+.dialog-close {
+    text-decoration: none;
+    padding: 5px;}
+
+input[type=submit] {
+    padding: 5px;
+    border:1px solid #333; 
+    background-color:#333;
+    color: #fff;
+}
+
+#task-close-container p {
+    padding: 5px;
+    margin: 10px 5px;
+    border:1px solid #FFAEAE; 
+    background-color:#FEEBEB}
+#task-open-container p {
+    padding: 5px;
+    margin: 10px 5px;
+    border:2px solid #BBDF8D; 
+    background-color:#EAF7D9}
+#task-close-confirm,
+#task-open-confirm {
+    padding: 5px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    border:1px solid #333; 
+    background-color:#333}
+
+.readonly {
+    border: 1px solid #000;
+    background: #f0f0f0}
+.input-help {
+    font-style: italic }
+
+.errors {
+    color: #f00;
+    font-weight: bold;
+    padding: 5px; 
+}
+
+.paginator {
+    text-align: right !important}
+.paginator a {
+    padding: 5px 10px !important;
+    display: inline !important;
+    background-image: none !important}
+.paginator a.active,
+.paginator a:hover {
+    background: #333;
+    color: #fff;}
