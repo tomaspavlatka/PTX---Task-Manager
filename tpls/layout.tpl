@@ -35,6 +35,10 @@
         <ul class="box f-right">
             <li><a href="/index.php"><span><strong>Dashboard &raquo;</strong></span></a></li>
         </ul>        
+
+        <ul class="box">
+            <li><a href="/client.php"><span>JS Client</span></a></li>
+        </ul>
     </div> <!-- /header -->
 
     <hr class="noscreen" />
@@ -53,5 +57,7 @@
         <p class="f-left">&copy; 2015 <a href="http://www.pavlatka.cz" title="Tomas Pavlatka - passionate PHP Developer">Tomas Pavlatka</a>  - passionate PHP Developer</p>
     </div> <!-- /footer -->
 </div> <!-- /main -->
+
+<div id="page-overlay"></div>
 </body>
 </html>

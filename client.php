@@ -2,7 +2,7 @@
 
 define('APP', __DIR__);
 define('DS', '/');
-require APP . DS . 'Config' . DS . 'config.php';
+require APP . DS . 'Config' . DS . 'bootstrap.php';
 
 $tpl = file_get_contents(TPL . 'tasks.tpl');
 $replace = array();

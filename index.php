@@ -2,8 +2,7 @@
 
 define('APP', __DIR__);
 define('DS', '/');
-define('TPL', APP . DS . 'tpls' . DS);
-require APP . DS . 'Config' . DS . 'config.php';
+require APP . DS . 'Config' . DS . 'bootstrap.php';
 
 $tpl = file_get_contents(TPL . 'index.tpl');
 $replace = array();

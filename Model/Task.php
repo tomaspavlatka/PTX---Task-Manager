@@ -2,10 +2,27 @@
 require MODEL . 'AppModel.php';
 class Task extends AppModel {
 
-    protected $_table = 'tasks';
+    public $validation_errors = array();
     private $_per_page = 25;
+    protected $_table = 'tasks';
 
     public function __construct() {}
+
+    /**
+     * Returns data for specific task
+     *
+     * @param int $task_id - id of the task
+     * @param array $params - possible to specify additional params, e.g. fields
+     * @return array $task_data - data of selected task
+     */
+    public function get_data($task_id, $params = array()) {
+        $select_columns = $this->get_select_columns($params);
+        $query = sprintf('SELECT %s FROM [%s] ', $select_columns, $this->_table);
+        $query .= sprintf('WHERE [id] = %d', $task_id);
+
+        $result = dibi::query($query);
+        return to_array($result->fetch());
+    }
 
     /**
      * 
@@ -15,8 +32,6 @@ class Task extends AppModel {
      */
     public function find_all($params) {
         $select_columns = $this->get_select_columns($params);
-
-
         $query = sprintf('SELECT %s FROM [%s] ', $select_columns, $this->_table);
 
         if(array_key_exists('conditions', $params) && is_array($params['conditions'])) {
@@ -86,4 +101,67 @@ class Task extends AppModel {
         return $data;
     }
 
+    /**
+     * Saves / updates new task into db
+     * system will check whether there is a field id in $data and whether is not empty. If both conditions
+     * are met, system will update the result instead of inserting new one
+     *
+     * @param array $data - data to be inserted
+     * @return integer $task_id - id of the task.
+     */
+    public function save($data) {
+        $task_id = null;
+
+        if($this->validates($data)) {
+            if(!array_key_exists('id', $data) || empty($data['id'])) {
+                $task_id = $this->_insert($data);
+            } else {
+                $task_id = $this->_update($data);
+            }
+        }
+
+        return $task_id;
+    }
+
+    /**
+     * Validates data
+     *
+     * @param array $data - data to be validated
+     * @return array $error_msg - array with error messages.
+     */
+    public function validates($data) {
+        $this->validation_errors = array();
+
+        if(empty($data)) {
+            $this->validation_errors['general'] = 'Data are missing';
+        }
+
+        if(!array_key_exists('name', $data)) {
+            $this->validation_errors['name'] = 'You forgot to insert task name';
+        } else if(empty($data['name'])) {
+            $this->validation_errors['name'] = 'You forgot to insert task name';
+        } 
+
+        return empty($this->validation_errors);
+    }
+
+    /**
+     * Inserting new task into database
+     * 
+     * @param array $data - array with data to be inserted
+     * @return int $task_id - id of new inserted task
+     */
+    private function _insert($data) {
+
+        // 1. Insert new task.
+        $data['status'] = 1;
+        $data = $this->_complete_data($data);
+        dibi::query(sprintf('INSERT INTO [%s]', $this->_table), $data);
+        
+        // 2. Get its id.
+        $result = dibi::query(sprintf('SELECT LAST_INSERT_ID() from [%s]', $this->_table));
+        $task_id = $result->fetchSingle();
+
+        return $task_id;
+    }
 }

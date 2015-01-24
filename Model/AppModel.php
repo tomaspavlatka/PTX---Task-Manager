@@ -23,4 +23,20 @@ class AppModel {
 
         return $select_columns;
     }
+
+    protected function _complete_data($data) {
+        // 1. Updated field.
+        if(!array_key_exists('updated', $data)) { // Add info about updated.
+            $data['updated'] = date('Y-m-d H:i:s');
+        }
+
+        // 2. If we insert new record
+        if(!array_key_exists('id', $data) || empty($data['id'])) {
+            if(!array_key_exists('created', $data)) { // Add info about created.
+                $data['created'] = date('Y-m-d H:i:s');
+            }            
+        }
+
+        return $data;
+    }
 }
