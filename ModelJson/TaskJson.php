@@ -98,13 +98,13 @@ class TaskJson extends AppModelJson {
             if(is_int($params['page']) && $params['page'] > 0) {
                 $page = $params['page'];
             }
-        }  
+        }          
 
         // Find folders we can use on the page.
         $folders_4_page = array();
         if($page > 0) {
-            $min = $page - 1 * ITEMS_PER_PAGE;
-            $max = $page * ITEMS_PER_PAGE;
+            $min = ($page - 1) * ITEMS_PER_PAGE;
+            $max = $page * ITEMS_PER_PAGE;            
 
             for($min; $min <= $max; $min++) {
                 if(array_key_exists($min, $folders)) {
