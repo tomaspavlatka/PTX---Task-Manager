@@ -13,14 +13,14 @@ define('CONTROLLER', APP . DS . 'Controller' . DS);
 define('MODEL', APP . DS . 'Model' . DS);
 define('MODEL_JSON', APP . DS . 'ModelJson' . DS);
 define('ITEMS_PER_PAGE', 10);
-define('STORAGE_TYPE', 'json'); // another option is json
+define('STORAGE_TYPE', 'mysql'); // another option is json
 define('STORAGE_TASK', APP . DS . '_storage' . DS . 'tasks' . DS) ; // where json files are stored.
 
 define('DB_DRIVER', 'mysql');
 define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'tomas_tasks');
+define('DB_USER', 'tomas_user756');
+define('DB_PASS', '!gpIg5PTko0F');
+define('DB_NAME', 'tomas_tasks953');
 define('DB_CHARSET', 'utf8');
 
 // Include autoload.

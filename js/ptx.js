@@ -96,8 +96,18 @@ jQuery(document).ready(function() {
 
     function load_tasks_table(page) {
         var overlay = jQuery('#tasks-table-overlay');
+        
+        if(page == null) {
+            var original_page = jQuery('#tasks-table-container').attr('data-page');
+            pattern = /^[0-9]+$/;
+            if(pattern.test(original_page)) {
+                page = original_page;
+            } else {
+                page = 1;
+            }
+        }
 
-        var post_data = {page: page}
+        var post_data = {page: page}        
 
         overlay.show();
         jQuery.ajax({
@@ -106,6 +116,7 @@ jQuery(document).ready(function() {
             dataType: 'json',
             data: {data: JSON.stringify(post_data)}
         }).done(function(data) {    
+            jQuery('#tasks-table-container').attr('data-page', page);
             build_table(data);
             overlay.hide();
         }).fail(function(data) {
@@ -175,7 +186,7 @@ jQuery(document).ready(function() {
                 if(data.errors == undefined || data.errors == 'undefined') {
                     dialog('form-new-task', 'hide');
                     notification('New task has been stored.');
-                    load_tasks_table(1);           
+                    load_tasks_table(null);           
                 } else {
                     show_errors(data.errors);
                 }
@@ -214,7 +225,7 @@ jQuery(document).ready(function() {
                 if(data.errors == undefined || data.errors == 'undefined') {
                     dialog('form-report-container', 'hide');
                     notification('New time report has been stored.');
-                    load_tasks_table(1);
+                    load_tasks_table(null);
                 } else {
                     show_errors(data.errors);
                 }
@@ -305,7 +316,7 @@ jQuery(document).ready(function() {
         }).done(function(data) {
             if(data.errors == undefined || data.errors == 'undefined') {
                 dialog('task-close-container', 'hide');
-                load_tasks_table(1);           
+                load_tasks_table(null);           
             } else {
                 show_errors(data.errors);
             }
@@ -328,7 +339,7 @@ jQuery(document).ready(function() {
         }).done(function(data) {
             if(data.errors == undefined || data.errors == 'undefined') {
                 dialog('task-open-container', 'hide');
-                load_tasks_table(1);           
+                load_tasks_table(null);           
             } else {
                 show_errors(data.errors);
             }
