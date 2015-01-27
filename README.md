@@ -67,6 +67,8 @@ System uses dibiphp as layer to connect and operate with MySQL database. The eas
 composer install
 ```
 
+## Tests
+Tests are written for PHPUnit and are stored under `/test` folder. If you want to test application with MySQL database, you have to create copy of `tasks` table and name it as `tasks_test`.
 
 ## Project Online
 The project can be viewed under: http://tasks.ptx.cz/index.php
