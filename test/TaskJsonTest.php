@@ -1,5 +1,5 @@
 <?php 
-require_once './AppTest.php';
+require_once realpath(__DIR__) . '/AppTest.php';
 require_once MODEL_JSON . 'TaskJson.php';
 
 class TaskJsonTest extends AppTest {

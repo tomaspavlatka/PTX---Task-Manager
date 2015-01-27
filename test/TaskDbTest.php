@@ -1,5 +1,5 @@
 <?php 
-require_once './AppDbTest.php';
+require_once realpath(__DIR__) .'/AppDbTest.php';
 require_once MODEL . 'Task.php';
 
 class TaskDbTest extends AppDbTest {

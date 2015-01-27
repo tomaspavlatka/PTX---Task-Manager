@@ -6,12 +6,14 @@ error_reporting(-1);
 date_default_timezone_set('Europe/Athens');
 
 // Constants.
+define('APP', realpath(__DIR__ . '/../'));
+define('DS', '/');
 define('TPL', APP . DS . 'tpls' . DS);
 define('CONTROLLER', APP . DS . 'Controller' . DS);
 define('MODEL', APP . DS . 'Model' . DS);
 define('MODEL_JSON', APP . DS . 'ModelJson' . DS);
 define('ITEMS_PER_PAGE', 10);
-define('STORAGE_TYPE', 'mysql'); // another option is json
+define('STORAGE_TYPE', 'json'); // another option is json
 define('STORAGE_TASK', APP . DS . '_storage' . DS . 'tasks' . DS) ; // where json files are stored.
 
 define('DB_DRIVER', 'mysql');

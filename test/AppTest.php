@@ -1,8 +1,6 @@
 <?php
-define('APP', realpath(__DIR__ . '/../'));
-define('DS', '/');
-require APP . DS . 'Config' . DS . 'bootstrap.php';
-require CONTROLLER . 'TaskController.php';
+require_once realpath(__DIR__ . '/../') . '/Config/bootstrap.php';
+require_once CONTROLLER . 'TaskController.php';
 
 abstract class AppTest extends PHPUnit_Framework_TestCase {
 

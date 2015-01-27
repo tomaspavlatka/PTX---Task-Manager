@@ -1,9 +1,7 @@
 <?php 
 header('content-type: application/json; charset=utf-8');
 
-define('APP', __DIR__);
-define('DS', '/');
-require APP . DS . 'Config' . DS . 'bootstrap.php';
+require realpath(__DIR__). '/Config/bootstrap.php';
 require CONTROLLER . 'TaskController.php';
 require MODEL . 'Task.php';
 require MODEL_JSON . 'TaskJson.php';

@@ -1,8 +1,6 @@
 <?php 
-
-define('APP', __DIR__);
-define('DS', '/');
-require APP . DS . 'Config' . DS . 'bootstrap.php';
+header('content-type: text/html; charset=utf-8');
+require realpath(__DIR__). '/Config/bootstrap.php';
 
 $tpl = file_get_contents(TPL . 'tasks.tpl');
 $replace = array();
