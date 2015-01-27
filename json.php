@@ -6,6 +6,7 @@ define('DS', '/');
 require APP . DS . 'Config' . DS . 'bootstrap.php';
 require CONTROLLER . 'TaskController.php';
 require MODEL . 'Task.php';
+require MODEL_JSON . 'TaskJson.php';
 
 $action = null;
 $request_uri = str_replace('/json/', null, $_SERVER['REQUEST_URI']);

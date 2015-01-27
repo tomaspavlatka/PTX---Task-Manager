@@ -1,9 +1,26 @@
 <?php 
+abstract class AppModel {    
 
-class AppModel {
+    public $validation_errors = array();
+    protected $_table;
+    protected $_db;
 
-    protected $_table = null;
-    
+    /**
+     * 
+     *
+     * @param 
+     * @return 
+     */
+    public function __construct($params = array()) {
+        $options = array(
+            'driver' => DB_DRIVER,
+            'host' => DB_HOST,
+            'username' => DB_USER,
+            'password' => DB_PASS,
+            'database' => DB_NAME,
+            'charset' => DB_CHARSET);
+        $this->_db = new DibiConnection($options);
+    }
 
     public function get_select_columns($params) {
         $select_columns = '*';

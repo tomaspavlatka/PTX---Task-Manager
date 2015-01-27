@@ -1,11 +1,17 @@
 <?php 
-require MODEL . 'AppModel.php';
+require_once MODEL . 'AppModel.php';
 class Task extends AppModel {
 
     public $validation_errors = array();    
-    protected $_table = 'tasks';
+    protected $_table = 'tasks';    
 
-    public function __construct() {}
+    public function __construct($params = array()) {
+        parent::__construct($params);
+
+        if(array_key_exists('tasks_table', $params)) {
+            $this->_table = $params['tasks_table'];
+        }
+    }
 
     /**
      * Adds spent time for a task
@@ -22,7 +28,7 @@ class Task extends AppModel {
             if($task_data['task_status'] == 'opened') {
                 $save_data = array(
                     'time_spent' => $task_data['time_spent'] + ($time  * 60));
-                dibi::query('UPDATE %n', $this->_table, 'SET', $save_data, 'WHERE [id] = %i', $id);
+                $this->_db->query('UPDATE %n', $this->_table, 'SET', $save_data, 'WHERE [id] = %i', $id);
             } else {
                 $error_msgs['general'] = 'You can report only for opened tasks.';
             }
@@ -49,7 +55,7 @@ class Task extends AppModel {
                 $save_data = array(
                     'task_status' => 'closed');
                 $query = sprintf('UPDATE [%s] SET', $this->_table);        
-                dibi::query($query, $save_data, 'WHERE [id] = %i', $id);
+                $this->_db->query($query, $save_data, 'WHERE [id] = %i', $id);
             } else {
                 $error_msgs['general'] = 'This task is already closed.';    
             }
@@ -73,7 +79,7 @@ class Task extends AppModel {
         $query = sprintf('SELECT %s FROM [%s] ', $select_columns, $this->_table);
         $query .= sprintf('WHERE [id] = %d', $id);
 
-        $result = dibi::query($query);
+        $result = $this->_db->query($query);     
         return to_array($result->fetch());
     }
 
@@ -148,7 +154,7 @@ class Task extends AppModel {
             $query .= sprintf('LIMIT %d OFFSET %d', ITEMS_PER_PAGE, $offset);
         }        
 
-        $result = dibi::query($query);
+        $result = $this->_db->query($query);
         $data = $result->fetchAll();        
         
         return $data;
@@ -169,7 +175,7 @@ class Task extends AppModel {
                 $save_data = array(
                     'task_status' => 'opened');
                 $query = sprintf('UPDATE [%s] SET', $this->_table);        
-                dibi::query($query, $save_data, 'WHERE [id] = %i', $id);
+                $this->_db->query($query, $save_data, 'WHERE [id] = %i', $id);
             } else {
                 $error_msgs['general'] = 'This task is already opened.';    
             }
@@ -237,10 +243,10 @@ class Task extends AppModel {
         // 1. Insert new task.
         $data['status'] = 1;
         $data = $this->_complete_data($data);
-        dibi::query(sprintf('INSERT INTO [%s]', $this->_table), $data);
+        $this->_db->query(sprintf('INSERT INTO [%s]', $this->_table), $data);
         
         // 2. Get its id.
-        $result = dibi::query(sprintf('SELECT LAST_INSERT_ID() from [%s]', $this->_table));
+        $result = $this->_db->query(sprintf('SELECT LAST_INSERT_ID() from [%s]', $this->_table));
         $id = $result->fetchSingle();
 
         return $id;
@@ -258,7 +264,7 @@ class Task extends AppModel {
 
         // 1. Insert new task.
         $data = $this->_complete_data($data);
-        dibi::query(sprintf('UPDATE [%s] SET', $this->_table), $data, 'WHERE [id] = %i', $id);        
+        $this->_db->query(sprintf('UPDATE [%s] SET', $this->_table), $data, 'WHERE [id] = %i', $id);        
 
         return $id;
     }
