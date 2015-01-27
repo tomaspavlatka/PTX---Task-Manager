@@ -29,9 +29,19 @@ These are nice to have and will yield bonus points but its perfectly ok not to m
 
 ## Solution
 
-Simple tasks manager using jQuery and PHP to operate. It saves into database and also into a files.
+Simple tasks manager using jQuery and PHP to operate. In can be set to use MySQL database or to work over JSON files. 
 
-The project can be viewed under: http://tasks.ptx.cz
+### Select what storage to use
+To set up what storage should be use, you have to set up constant `STORAGE_TYPE` properly
+
+```
+// /Config/boostrap.php
+define('STORAGE_TYPE', 'json'); // system will use JSON storage
+define('STORAGE_TYPE', 'mysql'); // system will use MySQL storage
+```
+
+## Project Online
+The project can be viewed under: http://tasks.ptx.cz/index.php
 
 Tomas Pavlatka
 
