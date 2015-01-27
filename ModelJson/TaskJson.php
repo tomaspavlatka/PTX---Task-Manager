@@ -100,7 +100,7 @@ class TaskJson extends AppModelJson {
             }
         }          
 
-        // Find folders we can use on the page.
+        // Find folders we can use on the page. 
         $folders_4_page = array();
         if($page > 0) {
             $min = ($page - 1) * ITEMS_PER_PAGE;
