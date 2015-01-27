@@ -40,6 +40,34 @@ define('STORAGE_TYPE', 'json'); // system will use JSON storage
 define('STORAGE_TYPE', 'mysql'); // system will use MySQL storage
 ```
 
+### SetUp for MySQL
+
+If you want to use MySQL as storage, you have to prepare database, create proper tables and set up the application. 
+
+#### 1. SQL Dump
+The application needs only 1 table to operate and its dump can be found `/Config/Sql/tasks.sql`.
+
+#### 2. Constant for connection
+
+Apart this, you have to set up constant for MySQL in `/Config/bootstrap`
+
+```
+define('DB_DRIVER', 'mysql'); 
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'tomas_tasks');
+define('DB_CHARSET', 'utf8');
+```
+
+#### 3. DibiPHP installation
+System uses dibiphp as layer to connect and operate with MySQL database. The easiest way to do it is via `composer` The `composer.json` file is in the main directory, so we need to just run following command
+
+``` 
+composer install
+```
+
+
 ## Project Online
 The project can be viewed under: http://tasks.ptx.cz/index.php
 
